@@ -20,6 +20,9 @@ export default function Register() {
   const [showOtp, setShowOtp] = useState(false);
   const [otpCode, setOtpCode] = useState("");
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const registrationType = urlParams.get("type") === "doctor" ? "doctor" : "user";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -46,7 +49,7 @@ export default function Register() {
       if (result?.access_token) {
         base44.auth.setToken(result.access_token);
       }
-      await trackRegistration(email);
+      await trackRegistration(email, registrationType);
       window.location.href = "/";
     } catch (err) {
       setError(err.message || "Invalid verification code");
@@ -69,6 +72,7 @@ export default function Register() {
   };
 
   const handleGoogle = () => {
+    localStorage.setItem("pmf_registration_type", registrationType);
     base44.auth.loginWithProvider("google", "/");
   };
 

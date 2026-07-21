@@ -52,18 +52,13 @@ export default function Landing() {
             <a href="#gydytojams" className="hover:text-sky-600 transition-colors">Gydytojams</a>
           </div>
           <div className="flex items-center gap-2">
-            {isAuthenticated ? (
+            {isAuthenticated && (
               <>
                 <Link to={user?.role === "admin" ? "/admin" : "/pacientas"}>
                   <Button size="sm" className="bg-sky-600 hover:bg-sky-700">Skydelis</Button>
                 </Link>
                 <span className="text-sm text-slate-500 hidden sm:inline max-w-[160px] truncate">{user?.email}</span>
                 <Button variant="ghost" size="sm" onClick={() => logout()}>Atsijungti</Button>
-              </>
-            ) : (
-              <>
-                <Link to="/login"><Button variant="ghost" size="sm">Prisijungti</Button></Link>
-                <Link to="/register"><Button size="sm" className="bg-sky-600 hover:bg-sky-700">Registruotis</Button></Link>
               </>
             )}
           </div>
@@ -87,10 +82,10 @@ export default function Landing() {
               MyHealthPilot sujungia jūsų medicininius įrašus, matavimus, simptomus ir sveikatos prietaisus į vieną asmeninę sveikatos profilį. AI asistentas stebi pokyčius ir paruošia aiškias santraukas jūsų pasirinktam gydytojui.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link to="/register"><Button size="lg" className="bg-sky-600 hover:bg-sky-700 text-base px-8">
+              <Link to="/register?type=user"><Button size="lg" className="bg-sky-600 hover:bg-sky-700 text-base px-8">
                 Sukurti sveikatos profilį <ArrowRight className="w-4 h-4 ml-2" />
               </Button></Link>
-              <Link to="/register"><Button size="lg" variant="outline" className="text-base px-8 border-slate-200">
+              <Link to="/register?type=doctor"><Button size="lg" variant="outline" className="text-base px-8 border-slate-200">
                 Prisijungti kaip gydytojas <Stethoscope className="w-4 h-4 ml-2" />
               </Button></Link>
             </div>

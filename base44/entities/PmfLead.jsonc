@@ -25,6 +25,13 @@
     },
     "country": {
       "type": "string"
+    },
+    "registrationType": {
+      "type": "string",
+      "enum": [
+        "user",
+        "doctor"
+      ]
     }
   },
   "required": [

@@ -31,13 +31,14 @@ export async function trackVisit() {
   }
 }
 
-export async function trackRegistration(email) {
+export async function trackRegistration(email, registrationType) {
   if (!email) return;
   try {
     const existing = await base44.entities.PmfLead.filter({ email });
     if (existing && existing.length > 0) return;
 
     const params = new URLSearchParams(window.location.search);
+    const regType = registrationType || localStorage.getItem("pmf_registration_type") || null;
     await base44.entities.PmfLead.create({
       email,
       landingPath: window.location.pathname,
@@ -46,7 +47,9 @@ export async function trackRegistration(email) {
       utmMedium: params.get("utm_medium") || null,
       utmCampaign: params.get("utm_campaign") || null,
       utmContent: params.get("utm_content") || null,
+      registrationType: regType,
     });
+    if (regType) localStorage.removeItem("pmf_registration_type");
   } catch (err) {
     // Silent fail
   }

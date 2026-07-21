@@ -395,6 +395,7 @@ export default function PmfDashboard() {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Email</TableHead>
+                    <TableHead>Type</TableHead>
                     <TableHead>Date</TableHead>
                     <TableHead>Use Case</TableHead>
                     <TableHead>Timing</TableHead>
@@ -408,6 +409,15 @@ export default function PmfDashboard() {
                   {leads.map((lead) => (
                     <TableRow key={lead.id}>
                       <TableCell className="font-medium">{lead.email}</TableCell>
+                      <TableCell>
+                        {lead.registrationType ? (
+                          <Badge variant={lead.registrationType === "doctor" ? "default" : "secondary"}>
+                            {lead.registrationType === "doctor" ? "Doctor" : "User"}
+                          </Badge>
+                        ) : (
+                          <span className="text-xs text-gray-400">--</span>
+                        )}
+                      </TableCell>
                       <TableCell className="text-sm text-gray-500">
                         {lead.created_date ? new Date(lead.created_date).toLocaleDateString() : ""}
                       </TableCell>
