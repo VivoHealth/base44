@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { bloodPressureData } from "@/lib/demoData";
 import Logo from "@/components/Logo";
+import { useAuth } from "@/lib/AuthContext";
 
 const bpChartData = bloodPressureData.slice(-14).map(r => ({
   date: r.date.slice(5),
@@ -21,6 +22,7 @@ const bpChartData = bloodPressureData.slice(-14).map(r => ({
 }));
 
 export default function Landing() {
+  const { user, isAuthenticated, logout } = useAuth();
   return (
     <div className="min-h-screen bg-white">
       {/* Nav */}
@@ -38,8 +40,20 @@ export default function Landing() {
             <a href="#gydytojams" className="hover:text-sky-600 transition-colors">Gydytojams</a>
           </div>
           <div className="flex items-center gap-2">
-            <Link to="/login"><Button variant="ghost" size="sm">Prisijungti</Button></Link>
-            <Link to="/register"><Button size="sm" className="bg-sky-600 hover:bg-sky-700">Registruotis</Button></Link>
+            {isAuthenticated ? (
+              <>
+                <Link to={user?.role === "admin" ? "/admin" : "/pacientas"}>
+                  <Button size="sm" className="bg-sky-600 hover:bg-sky-700">Skydelis</Button>
+                </Link>
+                <span className="text-sm text-slate-500 hidden sm:inline max-w-[160px] truncate">{user?.email}</span>
+                <Button variant="ghost" size="sm" onClick={() => logout()}>Atsijungti</Button>
+              </>
+            ) : (
+              <>
+                <Link to="/login"><Button variant="ghost" size="sm">Prisijungti</Button></Link>
+                <Link to="/register"><Button size="sm" className="bg-sky-600 hover:bg-sky-700">Registruotis</Button></Link>
+              </>
+            )}
           </div>
         </div>
       </nav>

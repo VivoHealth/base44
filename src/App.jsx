@@ -64,7 +64,11 @@ const AuthenticatedApp = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
-      <Route path="/pmf" element={<PmfDashboard />} />
+
+      {/* Protected PMF dashboard */}
+      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
+        <Route path="/pmf" element={<PmfDashboard />} />
+      </Route>
 
       {/* Protected patient routes */}
       <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
