@@ -145,7 +145,7 @@ export default function PatientOverview() {
           {alerts[0]?.level === "urgent" && (
             <div className="mt-3 p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700">
               <AlertTriangle className="w-3.5 h-3.5 inline mr-1" />
-              Ši informacija gali reikalauti skubaus medicininio dėmesio. HealthPilot nėra skubiosios pagalbos tarnyba. Kreipkitės į pagalbos tarnybas, kai reikalinga neatidėliotina pagalba.
+              Ši informacija gali reikalauti skubaus medicininio dėmesio. ManoSveikata nėra skubiosios pagalbos tarnyba. Kreipkitės į pagalbos tarnybas, kai reikalinga neatidėliotina pagalba.
             </div>
           )}
         </Card>

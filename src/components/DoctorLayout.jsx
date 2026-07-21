@@ -36,7 +36,7 @@ export default function DoctorLayout() {
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-500 flex items-center justify-center">
             <Heart className="w-5 h-5 text-white" fill="white" />
           </div>
-          <span className="text-lg font-bold text-slate-800">HealthPilot</span>
+          <span className="text-lg font-bold text-slate-800">ManoSveikata</span>
         </Link>
       </div>
       <div className="px-4 mb-4">

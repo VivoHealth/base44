@@ -29,7 +29,7 @@ export default function Landing() {
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-500 flex items-center justify-center">
               <Heart className="w-5 h-5 text-white" fill="white" />
             </div>
-            <span className="text-xl font-bold text-slate-800">HealthPilot</span>
+            <span className="text-xl font-bold text-slate-800">ManoSveikata</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <a href="#kaip-veikia" className="hover:text-sky-600 transition-colors">Kaip veikia</a>
@@ -59,7 +59,7 @@ export default function Landing() {
               Jūsų sveikata stebima AI ir prižiūrima jūsų pasirinkto gydytojo
             </h1>
             <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
-              HealthPilot sujungia jūsų medicininius įrašus, matavimus, simptomus ir sveikatos prietaisus į vieną asmeninę sveikatos profilį. AI asistentas stebi pokyčius ir paruošia aiškias santraukas jūsų pasirinktam gydytojui.
+              ManoSveikata sujungia jūsų medicininius įrašus, matavimus, simptomus ir sveikatos prietaisus į vieną asmeninę sveikatos profilį. AI asistentas stebi pokyčius ir paruošia aiškias santraukas jūsų pasirinktam gydytojui.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link to="/register"><Button size="lg" className="bg-sky-600 hover:bg-sky-700 text-base px-8">
@@ -366,7 +366,7 @@ export default function Landing() {
           <div>
             <h3 className="font-bold text-slate-800 mb-1">Saugumo pranešimas</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              HealthPilot nepakeičia skubiosios medicinos pagalbos. Esant kritinei situacijai, nedelsdami kreipkitės į vietinius pagalbos tarnybų numerius. AI sugeneruota informacija yra mokomojo pobūdžio ir turi būti peržiūrėta kvalifikuoto sveikatos priežiūros specialisto.
+              ManoSveikata nepakeičia skubiosios medicinos pagalbos. Esant kritinei situacijai, nedelsdami kreipkitės į vietinius pagalbos tarnybų numerius. AI sugeneruota informacija yra mokomojo pobūdžio ir turi būti peržiūrėta kvalifikuoto sveikatos priežiūros specialisto.
             </p>
           </div>
         </div>
@@ -381,7 +381,7 @@ export default function Landing() {
                 <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-500 flex items-center justify-center">
                   <Heart className="w-4 h-4 text-white" fill="white" />
                 </div>
-                <span className="text-lg font-bold text-slate-800">HealthPilot</span>
+                <span className="text-lg font-bold text-slate-800">ManoSveikata</span>
               </div>
               <p className="text-sm text-slate-500">Jūsų sveikata, stebima AI ir prižiūrima patikimo gydytojo.</p>
             </div>
@@ -411,7 +411,7 @@ export default function Landing() {
             </div>
           </div>
           <div className="pt-8 border-t border-slate-200 text-center text-sm text-slate-400">
-            © 2026 HealthPilot. Visos teisės saugomos. Ne skubiosios pagalbos paslauga.
+            © 2026 ManoSveikata. Visos teisės saugomos. Ne skubiosios pagalbos paslauga.
           </div>
         </div>
       </footer>
