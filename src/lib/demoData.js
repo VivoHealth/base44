@@ -1,4 +1,4 @@
-// Demo data for ManoSveikata (Lithuanian)
+// Demo data for MyHealthPilot (Lithuanian)
 
 export const doctors = [
   {

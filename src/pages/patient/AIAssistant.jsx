@@ -56,7 +56,7 @@ export default function AIAssistant() {
   const [messages, setMessages] = useState([
     {
       role: "ai",
-      content: "Sveiki, aš esu jūsų ManoSveikata AI asistentas. Galiu padėti tvarkyti ir paaiškinti jūsų sveikatos informaciją, sekti pokyčius ir paruošti santraukas jūsų gydytojui. Negaliu diagnozuoti ligų ar pakeisti medicinos specialisto.",
+      content: "Sveiki, aš esu jūsų MyHealthPilot AI asistentas. Galiu padėti tvarkyti ir paaiškinti jūsų sveikatos informaciją, sekti pokyčius ir paruošti santraukas jūsų gydytojui. Negaliu diagnozuoti ligų ar pakeisti medicinos specialisto.",
     },
   ]);
   const [input, setInput] = useState("");
