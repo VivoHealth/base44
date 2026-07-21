@@ -1,0 +1,14 @@
+{
+  "name": "PmfSettings",
+  "type": "object",
+  "properties": {
+    "adsSpend30d": {
+      "type": "number",
+      "default": 0
+    },
+    "adClicks30d": {
+      "type": "number",
+      "default": 0
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "PmfLead",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "landingPath": {
+      "type": "string"
+    },
+    "referrer": {
+      "type": "string"
+    },
+    "utmSource": {
+      "type": "string"
+    },
+    "utmMedium": {
+      "type": "string"
+    },
+    "utmCampaign": {
+      "type": "string"
+    },
+    "utmContent": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "email"
+  ]
+}

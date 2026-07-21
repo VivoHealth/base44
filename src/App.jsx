@@ -30,6 +30,7 @@ import Placeholder from '@/pages/Placeholder';
 import DoctorOverview from '@/pages/doctor/Overview';
 import DoctorPatients from '@/pages/doctor/Patients';
 import AdminOverview from '@/pages/admin/Overview';
+import PmfDashboard from '@/pages/PmfDashboard';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -63,6 +64,7 @@ const AuthenticatedApp = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/pmf" element={<PmfDashboard />} />
 
       {/* Protected patient routes */}
       <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>

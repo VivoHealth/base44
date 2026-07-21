@@ -1,0 +1,44 @@
+{
+  "name": "PmfQual",
+  "type": "object",
+  "properties": {
+    "leadId": {
+      "type": "string"
+    },
+    "useCase": {
+      "type": "string",
+      "enum": [
+        "launch_project",
+        "find_contributors",
+        "manage_tasks",
+        "build_community",
+        "funding_equity",
+        "other"
+      ]
+    },
+    "needWhen": {
+      "type": "string",
+      "enum": [
+        "today",
+        "this_week",
+        "this_month",
+        "just_exploring"
+      ]
+    },
+    "companySite": {
+      "type": "string"
+    },
+    "demoInterest": {
+      "type": "boolean",
+      "default": false
+    },
+    "demoNote": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "leadId",
+    "useCase",
+    "needWhen"
+  ]
+}
