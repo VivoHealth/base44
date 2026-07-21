@@ -35,13 +35,13 @@ export default function Login() {
   return (
     <AuthLayout
       icon={LogIn}
-      title="Welcome back"
-      subtitle="Log in to your account"
+      title="Sveiki sugrįžę"
+      subtitle="Prisijunkite prie savo paskyros"
       footer={
         <>
-          Don't have an account?{" "}
+          Neturite paskyros?{" "}
           <Link to="/register" className="text-primary font-medium hover:underline">
-            Create one
+            Sukurti paskyrą
           </Link>
         </>
       }
@@ -52,7 +52,7 @@ export default function Login() {
         onClick={handleGoogle}
       >
         <GoogleIcon className="w-5 h-5 mr-2" />
-        Continue with Google
+        Tęsti su Google
       </Button>
 
       <div className="relative mb-6">
@@ -60,7 +60,7 @@ export default function Login() {
           <div className="w-full border-t border-border" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-card px-3 text-muted-foreground">or</span>
+          <span className="bg-card px-3 text-muted-foreground">arba</span>
         </div>
       </div>
 
@@ -72,7 +72,7 @@ export default function Login() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">El. paštas</Label>
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
             <Input
@@ -90,9 +90,9 @@ export default function Login() {
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Slaptažodis</Label>
             <Link to="/forgot-password" className="text-xs text-primary hover:underline">
-              Forgot password?
+              Pamiršote slaptažodį?
             </Link>
           </div>
           <div className="relative">
@@ -113,13 +113,22 @@ export default function Login() {
           {loading ? (
             <>
               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              Logging in...
+              Prisijungiama...
             </>
           ) : (
-            "Log in"
+            "Prisijungti"
           )}
         </Button>
       </form>
-    </AuthLayout>
-  );
-}
+
+      <div className="mt-6 pt-6 border-t border-border">
+        <p className="text-xs text-center text-muted-foreground mb-3">Demo prieiga (nereikia prisijungti)</p>
+        <div className="grid grid-cols-3 gap-2">
+          <Link to="/pacientas"><Button variant="outline" size="sm" className="w-full text-xs">Pacientas</Button></Link>
+          <Link to="/gydytojas"><Button variant="outline" size="sm" className="w-full text-xs">Gydytojas</Button></Link>
+          <Link to="/admin"><Button variant="outline" size="sm" className="w-full text-xs">Adminas</Button></Link>
+        </div>
+      </div>
+      </AuthLayout>
+      );
+      }

@@ -6,7 +6,30 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
-// Add page imports here
+import ProtectedRoute from '@/components/ProtectedRoute';
+import { Navigate } from 'react-router-dom';
+import Landing from '@/pages/Landing';
+import Login from '@/pages/Login';
+import Register from '@/pages/Register';
+import ForgotPassword from '@/pages/ForgotPassword';
+import ResetPassword from '@/pages/ResetPassword';
+import PatientLayout from '@/components/PatientLayout';
+import DoctorLayout from '@/components/DoctorLayout';
+import AdminLayout from '@/components/AdminLayout';
+import PatientOverview from '@/pages/patient/Overview';
+import AIAssistant from '@/pages/patient/AIAssistant';
+import PatientHealthProfile from '@/pages/patient/HealthProfile';
+import PatientMeasurements from '@/pages/patient/Measurements';
+import PatientLabResults from '@/pages/patient/LabResults';
+import PatientMedications from '@/pages/patient/Medications';
+import PatientMarketplace from '@/pages/patient/Marketplace';
+import PatientMessages from '@/pages/patient/Messages';
+import PatientIntegrations from '@/pages/patient/Integrations';
+import PatientSubscription from '@/pages/patient/Subscription';
+import Placeholder from '@/pages/Placeholder';
+import DoctorOverview from '@/pages/doctor/Overview';
+import DoctorPatients from '@/pages/doctor/Patients';
+import AdminOverview from '@/pages/admin/Overview';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -34,7 +57,62 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
-      {/* Add your page Route elements here */}
+      {/* Public routes */}
+      <Route path="/" element={<Landing />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+
+      {/* Protected patient routes */}
+      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
+        <Route element={<PatientLayout />}>
+          <Route path="/pacientas" element={<PatientOverview />} />
+          <Route path="/pacientas/ai" element={<AIAssistant />} />
+          <Route path="/pacientas/profilis" element={<PatientHealthProfile />} />
+          <Route path="/pacientas/matavimai" element={<PatientMeasurements />} />
+          <Route path="/pacientas/laboratorija" element={<PatientLabResults />} />
+          <Route path="/pacientas/dokumentai" element={<Placeholder title="Dokumentai" description="Įkelkite ir valdykite savo medicininius dokumentus" />} />
+          <Route path="/pacientas/vaistai" element={<PatientMedications />} />
+          <Route path="/pacientas/gydytojas" element={<PatientMarketplace />} />
+          <Route path="/pacientas/zinutes" element={<PatientMessages />} />
+          <Route path="/pacientas/prenumerata" element={<PatientSubscription />} />
+          <Route path="/pacientas/integracijos" element={<PatientIntegrations />} />
+          <Route path="/pacientas/nustatymai" element={<Placeholder title="Nustatymai" description="Privatumo centras ir paskyros nustatymai" />} />
+        </Route>
+      </Route>
+
+      {/* Protected doctor routes */}
+      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
+        <Route element={<DoctorLayout />}>
+          <Route path="/gydytojas" element={<DoctorOverview />} />
+          <Route path="/gydytojas/pacientai" element={<DoctorPatients />} />
+          <Route path="/gydytojas/perziuros" element={<Placeholder title="Peržiūros" description="Mėnesinės pacientų peržiūros ir darbo eiga" />} />
+          <Route path="/gydytojas/ispėjimai" element={<Placeholder title="Įspėjimai" description="Pacientų įspėjimai ir aliarmai" />} />
+          <Route path="/gydytojas/zinutes" element={<Placeholder title="Žinutės" description="Saugus susirašinėjimas su pacientais" />} />
+          <Route path="/gydytojas/paskyros" element={<Placeholder title="Paskyros" description="Vaizdo konsultacijų tvarkaraštis" />} />
+          <Route path="/gydytojas/planai" element={<Placeholder title="Planai" description="Priežiūros planai ir kainos" />} />
+          <Route path="/gydytojas/pajamos" element={<Placeholder title="Pajamos" description="Mėnesio pajamos ir išmokos" />} />
+          <Route path="/gydytojas/profilis" element={<Placeholder title="Profilis" description="Gydytojo profesinis profilis" />} />
+          <Route path="/gydytojas/nustatymai" element={<Placeholder title="Nustatymai" description="Paskyros nustatymai" />} />
+        </Route>
+      </Route>
+
+      {/* Protected admin routes */}
+      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
+        <Route element={<AdminLayout />}>
+          <Route path="/admin" element={<AdminOverview />} />
+          <Route path="/admin/gydytojai" element={<Placeholder title="Gydytojai" description="Gydytojų patvirtinimas ir valdymas" />} />
+          <Route path="/admin/pacientai" element={<Placeholder title="Pacientai" description="Visi platformos pacientai" />} />
+          <Route path="/admin/prenumeratos" element={<Placeholder title="Prenumeratos" description="Aktyvių prenumeratų valdymas" />} />
+          <Route path="/admin/mokejimai" element={<Placeholder title="Mokėjimai" description="Mokėjimų istorija ir operacijos" />} />
+          <Route path="/admin/saugumas" element={<Placeholder title="Saugumas" description="Saugumo pranešimai ir AI atsakymų peržiūra" />} />
+          <Route path="/admin/integracijos" element={<Placeholder title="Integracijos" description="Sveikatos prietaisų integracijų konfigūracija" />} />
+          <Route path="/admin/turinys" element={<Placeholder title="Turinys" description="Turinio ir pranešimų valdymas" />} />
+          <Route path="/admin/nustatymai" element={<Placeholder title="Nustatymai" description="Platformos konfigūracija" />} />
+        </Route>
+      </Route>
+
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
