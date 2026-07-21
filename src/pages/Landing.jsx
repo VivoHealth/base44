@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -14,6 +14,7 @@ import {
 import { bloodPressureData } from "@/lib/demoData";
 import Logo from "@/components/Logo";
 import { useAuth } from "@/lib/AuthContext";
+import { trackVisit, trackRegistration } from "@/lib/pmfTracking";
 
 const bpChartData = bloodPressureData.slice(-14).map(r => ({
   date: r.date.slice(5),
@@ -23,6 +24,17 @@ const bpChartData = bloodPressureData.slice(-14).map(r => ({
 
 export default function Landing() {
   const { user, isAuthenticated, logout } = useAuth();
+
+  useEffect(() => {
+    trackVisit();
+  }, []);
+
+  useEffect(() => {
+    if (isAuthenticated && user?.email) {
+      trackRegistration(user.email);
+    }
+  }, [isAuthenticated, user]);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Nav */}

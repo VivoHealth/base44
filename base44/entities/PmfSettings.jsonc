@@ -10,5 +10,11 @@
       "type": "number",
       "default": 0
     }
+  },
+  "rls": {
+    "create": true,
+    "read": true,
+    "update": true,
+    "delete": true
   }
 }
