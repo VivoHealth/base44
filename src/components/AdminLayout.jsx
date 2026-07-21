@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/Logo";
 import {
   LayoutDashboard, Stethoscope, Users, CreditCard, Wallet,
   ShieldAlert, Plug, FileText, Settings, Heart, LogOut, Menu, X, Bell,
@@ -32,9 +33,7 @@ export default function AdminLayout() {
     <div className="flex flex-col h-full">
       <div className="p-6">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-500 flex items-center justify-center">
-            <Heart className="w-5 h-5 text-white" fill="white" />
-          </div>
+          <Logo />
           <span className="text-lg font-bold text-slate-800">ManoSveikata</span>
         </Link>
       </div>

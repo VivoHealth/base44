@@ -12,6 +12,7 @@ import {
   Calendar, BadgeCheck, ChevronRight,
 } from "lucide-react";
 import { bloodPressureData } from "@/lib/demoData";
+import Logo from "@/components/Logo";
 
 const bpChartData = bloodPressureData.slice(-14).map(r => ({
   date: r.date.slice(5),
@@ -26,9 +27,7 @@ export default function Landing() {
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-500 flex items-center justify-center">
-              <Heart className="w-5 h-5 text-white" fill="white" />
-            </div>
+            <Logo />
             <span className="text-xl font-bold text-slate-800">ManoSveikata</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
@@ -378,9 +377,7 @@ export default function Landing() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-500 flex items-center justify-center">
-                  <Heart className="w-4 h-4 text-white" fill="white" />
-                </div>
+                <Logo className="w-8 h-8" />
                 <span className="text-lg font-bold text-slate-800">ManoSveikata</span>
               </div>
               <p className="text-sm text-slate-500">Jūsų sveikata, stebima AI ir prižiūrima patikimo gydytojo.</p>
