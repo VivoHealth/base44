@@ -31,6 +31,26 @@ import DoctorOverview from '@/pages/doctor/Overview';
 import DoctorPatients from '@/pages/doctor/Patients';
 import AdminOverview from '@/pages/admin/Overview';
 import PmfDashboard from '@/pages/PmfDashboard';
+import LandingEn from '@/pages/en/Landing';
+import LoginEn from '@/pages/en/Login';
+import RegisterEn from '@/pages/en/Register';
+import PatientLayoutEn from '@/components/en/PatientLayout';
+import DoctorLayoutEn from '@/components/en/DoctorLayout';
+import AdminLayoutEn from '@/components/en/AdminLayout';
+import PatientOverviewEn from '@/pages/en/patient/Overview';
+import AIAssistantEn from '@/pages/en/patient/AIAssistant';
+import PatientHealthProfileEn from '@/pages/en/patient/HealthProfile';
+import PatientMeasurementsEn from '@/pages/en/patient/Measurements';
+import PatientLabResultsEn from '@/pages/en/patient/LabResults';
+import PatientMedicationsEn from '@/pages/en/patient/Medications';
+import PatientMarketplaceEn from '@/pages/en/patient/Marketplace';
+import PatientMessagesEn from '@/pages/en/patient/Messages';
+import PatientIntegrationsEn from '@/pages/en/patient/Integrations';
+import PatientSubscriptionEn from '@/pages/en/patient/Subscription';
+import PlaceholderEn from '@/pages/en/Placeholder';
+import DoctorOverviewEn from '@/pages/en/doctor/Overview';
+import DoctorPatientsEn from '@/pages/en/doctor/Patients';
+import AdminOverviewEn from '@/pages/en/admin/Overview';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -51,8 +71,12 @@ const AuthenticatedApp = () => {
     } else if (authError.type === 'auth_required') {
       // Redirect to login automatically — but not if we're already on an auth page (prevents loop)
       const path = window.location.pathname;
-      const isAuthPage = ['/login', '/register', '/forgot-password', '/reset-password'].includes(path);
+      const isAuthPage = ['/login', '/register', '/forgot-password', '/reset-password', '/en/login', '/en/register', '/en/forgot-password', '/en/reset-password'].includes(path);
       if (!isAuthPage) {
+        if (path.startsWith('/en')) {
+          window.location.href = '/en/login?from_url=' + encodeURIComponent(window.location.href);
+          return null;
+        }
         navigateToLogin();
         return null;
       }
@@ -120,6 +144,62 @@ const AuthenticatedApp = () => {
           <Route path="/admin/integracijos" element={<Placeholder title="Integracijos" description="Sveikatos prietaisų integracijų konfigūracija" />} />
           <Route path="/admin/turinys" element={<Placeholder title="Turinys" description="Turinio ir pranešimų valdymas" />} />
           <Route path="/admin/nustatymai" element={<Placeholder title="Nustatymai" description="Platformos konfigūracija" />} />
+        </Route>
+      </Route>
+
+      {/* English public routes */}
+      <Route path="/en" element={<LandingEn />} />
+      <Route path="/en/login" element={<LoginEn />} />
+      <Route path="/en/register" element={<RegisterEn />} />
+      <Route path="/en/forgot-password" element={<ForgotPassword />} />
+      <Route path="/en/reset-password" element={<ResetPassword />} />
+
+      {/* Protected English patient routes */}
+      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/en/login" replace />} />}>
+        <Route element={<PatientLayoutEn />}>
+          <Route path="/en/patient" element={<PatientOverviewEn />} />
+          <Route path="/en/patient/ai" element={<AIAssistantEn />} />
+          <Route path="/en/patient/profile" element={<PatientHealthProfileEn />} />
+          <Route path="/en/patient/measurements" element={<PatientMeasurementsEn />} />
+          <Route path="/en/patient/lab" element={<PatientLabResultsEn />} />
+          <Route path="/en/patient/documents" element={<PlaceholderEn title="Documents" description="Upload and manage your medical documents" />} />
+          <Route path="/en/patient/medications" element={<PatientMedicationsEn />} />
+          <Route path="/en/patient/doctor" element={<PatientMarketplaceEn />} />
+          <Route path="/en/patient/messages" element={<PatientMessagesEn />} />
+          <Route path="/en/patient/subscription" element={<PatientSubscriptionEn />} />
+          <Route path="/en/patient/integrations" element={<PatientIntegrationsEn />} />
+          <Route path="/en/patient/settings" element={<PlaceholderEn title="Settings" description="Privacy center and account settings" />} />
+        </Route>
+      </Route>
+
+      {/* Protected English doctor routes */}
+      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/en/login" replace />} />}>
+        <Route element={<DoctorLayoutEn />}>
+          <Route path="/en/doctor" element={<DoctorOverviewEn />} />
+          <Route path="/en/doctor/patients" element={<DoctorPatientsEn />} />
+          <Route path="/en/doctor/reviews" element={<PlaceholderEn title="Reviews" description="Monthly patient reviews and workflow" />} />
+          <Route path="/en/doctor/alerts" element={<PlaceholderEn title="Alerts" description="Patient alerts and alarms" />} />
+          <Route path="/en/doctor/messages" element={<PlaceholderEn title="Messages" description="Secure messaging with patients" />} />
+          <Route path="/en/doctor/appointments" element={<PlaceholderEn title="Appointments" description="Video consultation schedule" />} />
+          <Route path="/en/doctor/plans" element={<PlaceholderEn title="Plans" description="Care plans and pricing" />} />
+          <Route path="/en/doctor/revenue" element={<PlaceholderEn title="Revenue" description="Monthly revenue and payouts" />} />
+          <Route path="/en/doctor/profile" element={<PlaceholderEn title="Profile" description="Doctor professional profile" />} />
+          <Route path="/en/doctor/settings" element={<PlaceholderEn title="Settings" description="Account settings" />} />
+        </Route>
+      </Route>
+
+      {/* Protected English admin routes */}
+      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/en/login" replace />} />}>
+        <Route element={<AdminLayoutEn />}>
+          <Route path="/en/admin" element={<AdminOverviewEn />} />
+          <Route path="/en/admin/doctors" element={<PlaceholderEn title="Doctors" description="Doctor approval and management" />} />
+          <Route path="/en/admin/patients" element={<PlaceholderEn title="Patients" description="All platform patients" />} />
+          <Route path="/en/admin/subscriptions" element={<PlaceholderEn title="Subscriptions" description="Active subscription management" />} />
+          <Route path="/en/admin/payments" element={<PlaceholderEn title="Payments" description="Payment history and transactions" />} />
+          <Route path="/en/admin/security" element={<PlaceholderEn title="Security" description="Security reports and AI response review" />} />
+          <Route path="/en/admin/integrations" element={<PlaceholderEn title="Integrations" description="Health device integration configuration" />} />
+          <Route path="/en/admin/content" element={<PlaceholderEn title="Content" description="Content and notification management" />} />
+          <Route path="/en/admin/settings" element={<PlaceholderEn title="Settings" description="Platform configuration" />} />
         </Route>
       </Route>
 
