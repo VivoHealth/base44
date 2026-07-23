@@ -101,7 +101,7 @@ export default function LandingEn() {
               <div className="flex items-center justify-between mb-5">
                 <div>
                   <p className="text-sm text-slate-500">Health monitoring dashboard</p>
-                  <p className="text-lg font-bold text-slate-800">Jonas Petrauskas</p>
+                  <p className="text-lg font-bold text-slate-800">John Barter</p>
                 </div>
                 <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200">Monitored</Badge>
               </div>

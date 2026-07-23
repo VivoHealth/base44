@@ -44,7 +44,7 @@ export default function PatientLayoutEn() {
       <div className="px-4 mb-4">
         <div className="p-3 rounded-2xl bg-sky-50/50 border border-sky-100">
           <p className="text-xs text-slate-500">Patient</p>
-          <p className="text-sm font-semibold text-slate-800">Jonas Petrauskas</p>
+          <p className="text-sm font-semibold text-slate-800">John Barter</p>
           <p className="text-xs text-sky-600">Under doctor's care</p>
         </div>
       </div>
@@ -95,7 +95,7 @@ export default function PatientLayoutEn() {
             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full" />
           </button>
           <div className="ml-2 w-9 h-9 rounded-full bg-gradient-to-br from-sky-400 to-emerald-400 flex items-center justify-center text-white text-sm font-semibold">
-            JP
+            JB
           </div>
         </header>
         <main className="p-4 sm:p-6 lg:p-8">

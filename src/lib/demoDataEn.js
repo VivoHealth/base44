@@ -345,7 +345,7 @@ export const integrations = [
 ];
 
 export const patientProfile = {
-  name: "Jonas Petrauskas",
+  name: "John Barter",
   age: 58,
   gender: "Male",
   height: 178,
@@ -353,7 +353,7 @@ export const patientProfile = {
   bmi: 27.1,
   bloodType: "A+",
   phone: "+370 600 12345",
-  email: "jonas.petrauskas@email.lt",
+  email: "john.barter@email.lt",
   city: "Vilnius",
   emergencyContact: "Ona Petrauskienė (+370 699 87654)",
   allergies: ["Penicillin"],
@@ -370,7 +370,7 @@ export const patientProfile = {
 };
 
 export const doctorPatients = [
-  { id: "p1", name: "Jonas Petrauskas", age: 58, condition: "Arterial hypertension", status: "Needs attention", bp: "142/91", lastReview: "2026-06-19", nextReview: "2026-08-19", alert: "urgent", plan: "€39/mo" },
+  { id: "p1", name: "John Barter", age: 58, condition: "Arterial hypertension", status: "Needs attention", bp: "142/91", lastReview: "2026-06-19", nextReview: "2026-08-19", alert: "urgent", plan: "€39/mo" },
   { id: "p2", name: "Marytė Žilinskaitė", age: 64, condition: "Type 2 diabetes", status: "Stable", bp: "128/82", lastReview: "2026-07-05", nextReview: "2026-08-05", alert: "none", plan: "€39/mo" },
   { id: "p3", name: "Petras Kazlauskas", age: 71, condition: "Coronary heart disease", status: "Review due", bp: "138/88", lastReview: "2026-06-20", nextReview: "2026-07-20", alert: "review", plan: "€79/mo" },
   { id: "p4", name: "Ona Vasiliauskienė", age: 55, condition: "Hypercholesterolemia", status: "Stable", bp: "124/80", lastReview: "2026-07-01", nextReview: "2026-08-01", alert: "none", plan: "€39/mo" },
