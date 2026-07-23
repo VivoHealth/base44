@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { patientProfile } from "@/lib/demoData";
+import { patientProfile } from "@/lib/demoDataEn";
 import { User, Heart, Activity, AlertCircle, FileText, Pill, Scissors, Users, Cigarette, Wine, Footprints, Moon, Phone } from "lucide-react";
 
 export default function HealthProfileEn() {

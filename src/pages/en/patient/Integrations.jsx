@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart, Smartphone, Watch, FlaskConical, FileText, Edit3, CheckCircle2, RefreshCw, Unplug } from "lucide-react";
-import { integrations } from "@/lib/demoData";
+import { integrations } from "@/lib/demoDataEn";
 
 const iconMap = { heart: Heart, apple: Smartphone, phone: Smartphone, watch: Watch, flask: FlaskConical, file: FileText, edit: Edit3 };
 

@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 import { Users, AlertTriangle, ClipboardCheck, Wallet, TrendingUp, ChevronRight, Activity } from "lucide-react";
-import { doctorPatients } from "@/lib/demoData";
+import { doctorPatients } from "@/lib/demoDataEn";
 
 const revenueData = [
   { month: "Feb", revenue: 420 },

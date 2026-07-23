@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Search, ChevronRight } from "lucide-react";
-import { doctorPatients } from "@/lib/demoData";
+import { doctorPatients } from "@/lib/demoDataEn";
 
 const alertConfig = {
   urgent: { label: "Urgent", color: "bg-rose-50 text-rose-700 border-rose-200", dot: "bg-rose-500" },

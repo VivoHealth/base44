@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Image } from "@/components/ui/image";
 import { Star, MapPin, Languages, Clock, BadgeCheck, Filter, Search, Stethoscope } from "lucide-react";
-import { doctors } from "@/lib/demoData";
+import { doctors } from "@/lib/demoDataEn";
 
 const specializations = ["All", "Family Medicine", "Cardiology", "Endocrinology", "Internal Medicine", "Preventive Medicine", "Lifestyle Medicine"];
 

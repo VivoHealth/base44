@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { labResults } from "@/lib/demoData";
+import { labResults } from "@/lib/demoDataEn";
 import { TrendingUp, TrendingDown, Minus, FlaskConical } from "lucide-react";
 
 const statusConfig = {

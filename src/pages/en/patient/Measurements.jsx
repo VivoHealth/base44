@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { LineChart, Line, Area, AreaChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 import { Heart, Activity, Scale, Droplet, Thermometer, Moon, Footprints, Filter } from "lucide-react";
-import { bloodPressureData } from "@/lib/demoData";
+import { bloodPressureData } from "@/lib/demoDataEn";
 
 const ranges = {
   "7d": 14, "30d": 60, "90d": 60, "1y": 60,

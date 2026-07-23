@@ -8,7 +8,7 @@ import {
   Heart, Stethoscope, Calendar, FlaskConical, Pill, Clock,
   AlertTriangle, FileText, Bot, CreditCard, Activity, TrendingUp, ChevronRight,
 } from "lucide-react";
-import { patientProfile, bloodPressureData, alerts, healthTimeline, medications } from "@/lib/demoData";
+import { patientProfile, bloodPressureData, alerts, healthTimeline, medications } from "@/lib/demoDataEn";
 
 const bpChart = bloodPressureData.slice(-14).map(r => ({
   date: r.date.slice(5),

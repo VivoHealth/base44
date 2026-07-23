@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Pill, Check, Clock, Plus, User } from "lucide-react";
-import { medications } from "@/lib/demoData";
+import { medications } from "@/lib/demoDataEn";
 
 export default function MedicationsEn() {
   const [meds, setMeds] = useState(medications);

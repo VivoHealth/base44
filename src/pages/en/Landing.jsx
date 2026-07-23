@@ -10,7 +10,7 @@ import {
   FilePlus, Edit3, Lock, AlertTriangle, Users, TrendingUp, MessageSquare,
   Calendar, BadgeCheck, ChevronRight,
 } from "lucide-react";
-import { bloodPressureData } from "@/lib/demoData";
+import { bloodPressureData } from "@/lib/demoDataEn";
 import Logo from "@/components/Logo";
 import { useAuth } from "@/lib/AuthContext";
 import { trackVisit, trackRegistration } from "@/lib/pmfTracking";
