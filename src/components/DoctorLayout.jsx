@@ -35,7 +35,7 @@ export default function DoctorLayout() {
       <div className="p-6">
         <Link to="/" className="flex items-center gap-2">
           <Logo />
-          <span className="text-lg font-bold text-slate-800">MyHealthPilot</span>
+          <span className="text-lg font-bold text-slate-800">vivo</span>
         </Link>
       </div>
       <div className="px-4 mb-4">

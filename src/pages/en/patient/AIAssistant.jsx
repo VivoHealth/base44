@@ -56,7 +56,7 @@ export default function AIAssistantEn() {
   const [messages, setMessages] = useState([
     {
       role: "ai",
-      content: "Hello, I'm your MyHealthPilot AI assistant. I can help manage and explain your health information, track changes, and prepare summaries for your doctor. I cannot diagnose conditions or replace a medical professional.",
+      content: "Hello, I'm your vivo AI assistant. I can help manage and explain your health information, track changes, and prepare summaries for your doctor. I cannot diagnose conditions or replace a medical professional.",
     },
   ]);
   const [input, setInput] = useState("");

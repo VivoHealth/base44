@@ -41,7 +41,7 @@ export default function LandingEn() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Logo />
-            <span className="text-xl font-bold text-slate-800">MyHealthPilot</span>
+            <span className="text-xl font-bold text-slate-800">vivo</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <a href="#how-it-works" className="hover:text-sky-600 transition-colors">How it works</a>
@@ -78,7 +78,7 @@ export default function LandingEn() {
               Your health monitored by AI and supervised by your chosen doctor
             </h1>
             <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
-              MyHealthPilot brings together your medical records, measurements, symptoms, and health devices into one personal health profile. The AI assistant monitors changes and prepares clear summaries for your chosen doctor.
+              vivo brings together your medical records, measurements, symptoms, and health devices into one personal health profile. The AI assistant monitors changes and prepares clear summaries for your chosen doctor.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link to="/en/register?type=user"><Button size="lg" className="bg-sky-600 hover:bg-sky-700 text-base px-8">
@@ -385,7 +385,7 @@ export default function LandingEn() {
           <div>
             <h3 className="font-bold text-slate-800 mb-1">Safety notice</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              MyHealthPilot does not replace emergency medical care. In a critical situation, immediately contact your local emergency services. AI-generated information is educational in nature and must be reviewed by a qualified healthcare professional.
+              vivo does not replace emergency medical care. In a critical situation, immediately contact your local emergency services. AI-generated information is educational in nature and must be reviewed by a qualified healthcare professional.
             </p>
           </div>
         </div>
@@ -398,7 +398,7 @@ export default function LandingEn() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Logo className="w-8 h-8" />
-                <span className="text-lg font-bold text-slate-800">MyHealthPilot</span>
+                <span className="text-lg font-bold text-slate-800">vivo</span>
               </div>
               <p className="text-sm text-slate-500">Your health, monitored by AI and supervised by a trusted doctor.</p>
             </div>
@@ -428,7 +428,7 @@ export default function LandingEn() {
             </div>
           </div>
           <div className="pt-8 border-t border-slate-200 text-center text-sm text-slate-400">
-            © 2026 MyHealthPilot. All rights reserved. Not an emergency service.
+            © 2026 vivo. All rights reserved. Not an emergency service.
           </div>
         </div>
       </footer>

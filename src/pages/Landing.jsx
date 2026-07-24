@@ -42,7 +42,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Logo />
-            <span className="text-xl font-bold text-slate-800">MyHealthPilot</span>
+            <span className="text-xl font-bold text-slate-800">vivo</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <a href="#kaip-veikia" className="hover:text-sky-600 transition-colors">Kaip veikia</a>
@@ -79,7 +79,7 @@ export default function Landing() {
               Jūsų sveikata stebima AI ir prižiūrima jūsų pasirinkto gydytojo
             </h1>
             <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
-              MyHealthPilot sujungia jūsų medicininius įrašus, matavimus, simptomus ir sveikatos prietaisus į vieną asmeninę sveikatos profilį. AI asistentas stebi pokyčius ir paruošia aiškias santraukas jūsų pasirinktam gydytojui.
+              vivo sujungia jūsų medicininius įrašus, matavimus, simptomus ir sveikatos prietaisus į vieną asmeninę sveikatos profilį. AI asistentas stebi pokyčius ir paruošia aiškias santraukas jūsų pasirinktam gydytojui.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link to="/register?type=user"><Button size="lg" className="bg-sky-600 hover:bg-sky-700 text-base px-8">
@@ -386,7 +386,7 @@ export default function Landing() {
           <div>
             <h3 className="font-bold text-slate-800 mb-1">Saugumo pranešimas</h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              MyHealthPilot nepakeičia skubiosios medicinos pagalbos. Esant kritinei situacijai, nedelsdami kreipkitės į vietinius pagalbos tarnybų numerius. AI sugeneruota informacija yra mokomojo pobūdžio ir turi būti peržiūrėta kvalifikuoto sveikatos priežiūros specialisto.
+              vivo nepakeičia skubiosios medicinos pagalbos. Esant kritinei situacijai, nedelsdami kreipkitės į vietinius pagalbos tarnybų numerius. AI sugeneruota informacija yra mokomojo pobūdžio ir turi būti peržiūrėta kvalifikuoto sveikatos priežiūros specialisto.
             </p>
           </div>
         </div>
@@ -399,7 +399,7 @@ export default function Landing() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Logo className="w-8 h-8" />
-                <span className="text-lg font-bold text-slate-800">MyHealthPilot</span>
+                <span className="text-lg font-bold text-slate-800">vivo</span>
               </div>
               <p className="text-sm text-slate-500">Jūsų sveikata, stebima AI ir prižiūrima patikimo gydytojo.</p>
             </div>
@@ -429,7 +429,7 @@ export default function Landing() {
             </div>
           </div>
           <div className="pt-8 border-t border-slate-200 text-center text-sm text-slate-400">
-            © 2026 MyHealthPilot. Visos teisės saugomos. Ne skubiosios pagalbos paslauga.
+            © 2026 vivo. Visos teisės saugomos. Ne skubiosios pagalbos paslauga.
           </div>
         </div>
       </footer>
