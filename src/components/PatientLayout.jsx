@@ -38,7 +38,7 @@ export default function PatientLayout() {
     <div className="flex flex-col h-full">
       <div className="p-6">
         <Link to="/" className="flex items-center gap-2">
-          <Logo className="w-40 h-12" />
+          <Logo className="w-52 h-16" />
         </Link>
       </div>
       <div className="px-4 mb-4">
