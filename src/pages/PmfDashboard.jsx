@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -21,7 +22,7 @@ import FlyDieBadge from "@/components/pmf/FlyDieBadge";
 import MetricCard from "@/components/pmf/MetricCard";
 import {
   Gauge, Eye, Users, Target, BarChart3, Settings, Download, Trash2,
-  Database, Info, Loader2,
+  Database, Info, Loader2, ArrowLeft, ClipboardList,
 } from "lucide-react";
 
 const USE_CASE_LABELS = {
@@ -227,7 +228,7 @@ export default function PmfDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <Loader2 className="w-6 h-6 animate-spin text-gray-400" />
       </div>
     );
@@ -238,14 +239,28 @@ export default function PmfDashboard() {
   const probs = s.probabilities || {};
   const ads = s.ads || {};
 
+  const funnelMax = Math.max(s.pageviews || 0, s.signups || 0, s.qualified || 0, 1);
+  const funnelRows = [
+    { label: "PageView", count: s.pageviews || 0, icon: Eye },
+    { label: "Signup", count: s.signups || 0, icon: Users },
+    { label: "Qualified", count: s.qualified || 0, icon: ClipboardList },
+  ];
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto p-6 space-y-4">
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">PMF Dashboard</h1>
-            <p className="text-sm text-gray-500">Product-Market Fit signal tracking</p>
+          <div className="flex items-center gap-3">
+            <Link to="/">
+              <Button variant="ghost" size="icon">
+                <ArrowLeft className="w-5 h-5" />
+              </Button>
+            </Link>
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">PMF Dashboard</h1>
+              <p className="text-sm text-gray-500">Product-Market Fit signal tracking</p>
+            </div>
           </div>
           <div className="flex items-center gap-2 flex-wrap">
             <Select value={range} onValueChange={setRange}>
@@ -300,7 +315,7 @@ export default function PmfDashboard() {
         </div>
 
         {/* Fly/Die Score Card */}
-        <div className="border border-gray-300 rounded-lg p-4 flex flex-wrap items-center justify-between gap-4">
+        <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <Gauge className="w-8 h-8 text-gray-700" />
             <div>
@@ -321,7 +336,7 @@ export default function PmfDashboard() {
               <div className="text-xs text-gray-500">target 8%</div>
             </div>
             <div className="text-center">
-              <div className="text-xs text-gray-500">P(qual|signup)</div>
+              <div className="text-xs text-gray-500">P(survey|signup)</div>
               <div className="font-semibold text-gray-900">{pct(probs.pQualSignup || 0)}</div>
               <div className="text-xs text-gray-500">target 35%</div>
             </div>
@@ -329,7 +344,7 @@ export default function PmfDashboard() {
         </div>
 
         {/* Methodology Panel */}
-        <div className="border border-gray-300 rounded-lg p-4">
+        <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
           <div className="flex items-start gap-3">
             <Info className="w-5 h-5 text-gray-500 shrink-0 mt-0.5" />
             <div className="space-y-2 text-sm">
@@ -337,17 +352,17 @@ export default function PmfDashboard() {
               <div className="space-y-1.5 text-gray-500">
                 <p>
                   <span className="font-medium text-gray-900">Score = </span>
-                  round(100 * (0.6 * clamp(signupRate / 0.08) + 0.4 * clamp(qualRate / 0.35)))
+                  round(100 * (0.6 * clamp(signupRate / 0.08) + 0.4 * clamp(surveyRate / 0.35)))
                 </p>
                 <p>
                   <span className="font-medium text-gray-900">signupRate</span> = signups / visitors &mdash; target: 8%
                 </p>
                 <p>
-                  <span className="font-medium text-gray-900">qualRate</span> = qualified / signups &mdash; target: 35%
+                  <span className="font-medium text-gray-900">surveyRate</span> = completed surveys / signups &mdash; target: 35%
                 </p>
                 <p>clamp() caps each ratio at 1.0 so over-performing on one metric can't mask the other.</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2">
+              <div className="flex items-center gap-4 pt-2 flex-wrap">
                 <div className="flex items-center gap-2">
                   <FlyDieBadge label="FLY" />
                   <span className="text-gray-500">QPV &gt; 1.5%</span>
@@ -362,7 +377,7 @@ export default function PmfDashboard() {
                 </div>
               </div>
               <p className="text-gray-500 pt-1">
-                <span className="font-medium text-gray-900">QPV</span> (Qualified Per Visit) = qualified / visitors &mdash; the single most important metric combining both conversion steps.
+                <span className="font-medium text-gray-900">QPV</span> (Qualified Per Visit) = surveyed / visitors &mdash; the key end-to-end conversion metric.
               </p>
             </div>
           </div>
@@ -372,20 +387,48 @@ export default function PmfDashboard() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <MetricCard title="Visitors" value={s.visitors || 0} icon={Eye} subtitle={`${s.pageviews || 0} pageviews`} />
           <MetricCard title="Signups" value={s.signups || 0} icon={Users} subtitle={pct(probs.pSignupVisit || 0)} />
-          <MetricCard title="Qualified" value={s.qualified || 0} icon={Target} subtitle={pct(probs.pQualSignup || 0)} />
+          <MetricCard title="Surveyed" value={s.qualified || 0} icon={Target} subtitle={pct(probs.pQualSignup || 0)} />
           <MetricCard
-            title="CPA (Signup)"
+            title="CPA (signup)"
             value={ads.spend > 0 ? `€${ads.cpaSignup?.toFixed(2)}` : "n/a"}
             icon={BarChart3}
-            subtitle={ads.spend > 0 ? `€${ads.spend} spent` : "No ad spend set"}
+            subtitle={ads.spend > 0 ? `€${ads.spend} spent` : "No spend configured"}
           />
         </div>
 
+        {/* Funnel Events */}
+        <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+          <h3 className="font-semibold text-gray-900 mb-4">Funnel Events</h3>
+          <div className="space-y-3">
+            {funnelRows.map((row) => (
+              <div key={row.label} className="flex items-center gap-3">
+                <div className="w-24 text-sm text-gray-600 flex items-center gap-2">
+                  <row.icon className="w-4 h-4 text-gray-400" />
+                  {row.label}
+                </div>
+                <div className="flex-1 h-7 bg-gray-100 rounded-md overflow-hidden">
+                  <div
+                    className="h-full bg-green-500 rounded-md flex items-center justify-end pr-2 transition-all"
+                    style={{ width: `${(row.count / funnelMax) * 100}%`, minWidth: row.count > 0 ? "2rem" : 0 }}
+                  >
+                    {row.count > 0 && (
+                      <span className="text-xs font-medium text-white">{row.count}</span>
+                    )}
+                  </div>
+                </div>
+                {row.count === 0 && (
+                  <span className="text-xs text-gray-400 w-8">0</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Recent Leads */}
-        <div className="border border-gray-300 rounded-lg p-4">
+        <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
           <div className="flex items-center justify-between gap-2 mb-4">
             <h3 className="font-semibold text-gray-900">Recent Leads</h3>
-            <Badge className="bg-pink-100 text-pink-600 border-transparent">{leads.length} total</Badge>
+            <Badge className="bg-gray-100 text-gray-600 border-transparent">{leads.length} total</Badge>
           </div>
           {leads.length === 0 ? (
             <p className="text-sm text-gray-500 text-center py-8">No leads yet. Share the /launch page or seed test data.</p>
@@ -394,50 +437,36 @@ export default function PmfDashboard() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Email</TableHead>
-                    <TableHead>Type</TableHead>
                     <TableHead>Date</TableHead>
-                    <TableHead>Use Case</TableHead>
-                    <TableHead>Timing</TableHead>
-                    <TableHead>Source</TableHead>
+                    <TableHead>Email</TableHead>
                     <TableHead>Country</TableHead>
-                    <TableHead>Demo</TableHead>
+                    <TableHead>Use case</TableHead>
+                    <TableHead>Timing</TableHead>
+                    <TableHead>Qualified</TableHead>
                     <TableHead className="w-10"></TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {leads.map((lead) => (
                     <TableRow key={lead.id}>
-                      <TableCell className="font-medium">{lead.email}</TableCell>
-                      <TableCell>
-                        {lead.registrationType ? (
-                          <Badge variant={lead.registrationType === "doctor" ? "default" : "secondary"}>
-                            {lead.registrationType === "doctor" ? "Doctor" : "User"}
-                          </Badge>
-                        ) : (
-                          <span className="text-xs text-gray-400">--</span>
-                        )}
-                      </TableCell>
                       <TableCell className="text-sm text-gray-500">
-                        {lead.created_date ? new Date(lead.created_date).toLocaleDateString() : ""}
+                        {lead.created_date ? new Date(lead.created_date).toLocaleDateString() : "—"}
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="font-medium">{lead.email}</TableCell>
+                      <TableCell className="text-sm">{lead.country || "—"}</TableCell>
+                      <TableCell className="text-sm">
                         {lead.qual?.useCase ? (
                           <Badge variant="secondary">{USE_CASE_LABELS[lead.qual.useCase] || lead.qual.useCase}</Badge>
                         ) : (
-                          <span className="text-xs text-gray-400">--</span>
+                          <span className="text-xs text-gray-400">—</span>
                         )}
                       </TableCell>
-                      <TableCell className="text-sm">
-                        {lead.qual?.needWhen ? NEED_WHEN_LABELS[lead.qual.needWhen] || lead.qual.needWhen : "--"}
-                      </TableCell>
                       <TableCell className="text-sm text-gray-500">
-                        {lead.utmSource || lead.utmCampaign || "--"}
+                        {lead.qual?.needWhen ? NEED_WHEN_LABELS[lead.qual.needWhen] || lead.qual.needWhen : "—"}
                       </TableCell>
-                      <TableCell className="text-sm">{lead.country || "--"}</TableCell>
                       <TableCell>
-                        {lead.qual?.demoInterest ? (
-                          <Badge>Yes</Badge>
+                        {lead.qual ? (
+                          <Badge variant="default">Yes</Badge>
                         ) : (
                           <span className="text-xs text-gray-400">No</span>
                         )}

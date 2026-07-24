@@ -1,8 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 
 const STYLES = {
-  FLY: "bg-pink-100 text-pink-600 border-transparent",
-  ITERATE: "bg-violet-100 text-violet-600 border-transparent",
+  FLY: "bg-green-100 text-green-700 border-transparent",
+  ITERATE: "bg-yellow-100 text-yellow-700 border-transparent",
   DIE: "bg-red-500 text-white border-transparent",
 };
 
