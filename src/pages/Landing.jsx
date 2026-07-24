@@ -41,7 +41,7 @@ export default function Landing() {
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Logo className="w-64 h-20" />
+            <Logo className="w-16 h-16" />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <a href="#kaip-veikia" className="hover:text-sky-600 transition-colors">Kaip veikia</a>
@@ -397,7 +397,7 @@ export default function Landing() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Logo className="w-48 h-14" />
+                <Logo className="w-12 h-12" />
               </div>
               <p className="text-sm text-slate-500">Jūsų sveikata, stebima AI ir prižiūrima patikimo gydytojo.</p>
             </div>
