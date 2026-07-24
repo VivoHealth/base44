@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import AdminRoute from '@/components/AdminRoute';
 import { Navigate } from 'react-router-dom';
 import Landing from '@/pages/Landing';
 import Login from '@/pages/Login';
@@ -93,8 +94,8 @@ const AuthenticatedApp = () => {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
 
-      {/* Protected PMF dashboard */}
-      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
+      {/* Admin-only PMF dashboard */}
+      <Route element={<AdminRoute />}>
         <Route path="/pmf" element={<PmfDashboard />} />
       </Route>
 
