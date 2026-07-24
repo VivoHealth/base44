@@ -33,8 +33,7 @@ export default function AdminLayoutEn() {
     <div className="flex flex-col h-full">
       <div className="p-6">
         <Link to="/en" className="flex items-center gap-2">
-          <Logo />
-          <span className="text-lg font-bold text-slate-800">vivo</span>
+          <Logo className="w-40 h-12" />
         </Link>
       </div>
       <div className="px-4 mb-4">
