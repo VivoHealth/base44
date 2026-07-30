@@ -50,7 +50,7 @@ export default function Register() {
         base44.auth.setToken(result.access_token);
       }
       await trackRegistration(email, registrationType);
-      window.location.href = "/";
+      window.location.href = registrationType === "doctor" ? "/gydytojas" : "/pacientas";
     } catch (err) {
       setError(err.message || "Invalid verification code");
     } finally {

@@ -30,6 +30,7 @@ import PatientSubscription from '@/pages/patient/Subscription';
 import Placeholder from '@/pages/Placeholder';
 import DoctorOverview from '@/pages/doctor/Overview';
 import DoctorPatients from '@/pages/doctor/Patients';
+import DoctorProfile from '@/pages/doctor/Profile';
 import AdminOverview from '@/pages/admin/Overview';
 import PmfDashboard from '@/pages/PmfDashboard';
 import LandingEn from '@/pages/en/Landing';
@@ -128,7 +129,7 @@ const AuthenticatedApp = () => {
           <Route path="/gydytojas/paskyros" element={<Placeholder title="Paskyros" description="Vaizdo konsultacijų tvarkaraštis" />} />
           <Route path="/gydytojas/planai" element={<Placeholder title="Planai" description="Priežiūros planai ir kainos" />} />
           <Route path="/gydytojas/pajamos" element={<Placeholder title="Pajamos" description="Mėnesio pajamos ir išmokos" />} />
-          <Route path="/gydytojas/profilis" element={<Placeholder title="Profilis" description="Gydytojo profesinis profilis" />} />
+          <Route path="/gydytojas/profilis" element={<DoctorProfile />} />
           <Route path="/gydytojas/nustatymai" element={<Placeholder title="Nustatymai" description="Paskyros nustatymai" />} />
         </Route>
       </Route>
