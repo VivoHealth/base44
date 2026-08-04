@@ -1,4 +1,5 @@
-// Demo data for MyHealthPilot (Lithuanian)
+// Demo data for vivo (Lithuanian)
+
 
 export const doctors = [
   {

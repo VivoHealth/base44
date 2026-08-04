@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart, Smartphone, Watch, FlaskConical, FileText, Edit3, CheckCircle2, RefreshCw, Unplug } from "lucide-react";
 import { integrations } from "@/lib/demoData";
+import AppleHealthCard from "@/components/integrations/AppleHealthCard";
 
 const iconMap = { heart: Heart, apple: Smartphone, phone: Smartphone, watch: Watch, flask: FlaskConical, file: FileText, edit: Edit3 };
 
@@ -31,6 +32,9 @@ export default function Integrations() {
         <h1 className="text-2xl font-bold text-slate-800">Integracijos</h1>
         <p className="text-slate-500 mt-1">Prijunkite savo sveikatos prietaisus ir programas</p>
       </div>
+
+      {/* Apple Health (HealthKit) featured card */}
+      <AppleHealthCard />
 
       {/* OMRON featured card */}
       <Card className="p-6 rounded-2xl border-slate-100">
@@ -85,7 +89,7 @@ export default function Integrations() {
 
       {/* Other integrations */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {integrations.slice(1).map((int, i) => {
+        {integrations.slice(1).filter((int) => int.name !== "Apple Health").map((int, i) => {
           const Icon = iconMap[int.icon] || Heart;
           const cfg = statusConfig[int.status] || statusConfig.available;
           return (
