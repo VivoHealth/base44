@@ -95,11 +95,17 @@ export default function AddMeasurementDialog({ tests, open, onOpenChange, onAdd 
               onChange={(e) => setValue(e.target.value)}
               className="h-10"
             />
-            {testId && (
-              <p className="text-xs text-slate-400">
-                Norma: {tests.find((t) => t.id === testId)?.refLabel} {tests.find((t) => t.id === testId)?.unit}
-              </p>
-            )}
+            {testId && (() => {
+              const t = tests.find((tt) => tt.id === testId);
+              const ref = t?.refLabel;
+              return ref ? (
+                <p className="text-xs text-slate-400">
+                  Norma: {ref}{t.unit ? ` ${t.unit}` : ""}
+                </p>
+              ) : (
+                <p className="text-xs text-slate-400">Informacinis rodiklis (normos nėra)</p>
+              );
+            })()}
           </div>
 
           {error && <p className="text-sm text-rose-600">{error}</p>}
